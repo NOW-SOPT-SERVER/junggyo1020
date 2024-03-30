@@ -26,4 +26,8 @@ public class Person {
     public void walk() {
         System.out.println(name + "이(가) 걷고 있습니다.");
     }
+
+    public static Person create(String name, int age, String sex) {
+        return new Person(name, age, sex);
+    }
 }

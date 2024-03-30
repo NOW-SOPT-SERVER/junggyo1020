@@ -19,5 +19,10 @@ public class Main {
                 .age(27)
                 .sex("male")
                 .build();
+        Person personWithFactoryMethod = Person.create("정정교", 27, "MALE");
+
+        System.out.println(personWithFactoryMethod.getName());
+
+        System.out.println(personWithFactoryMethod.getName());
     }
 }
