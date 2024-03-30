@@ -1,0 +1,7 @@
+
+g
+java:S1854"ERemove this useless assignment to local variable "personWithBuilder".(ώ―†¬ϊÿÿÿÿ8θÒ†οθ1
+G	java:S106"+Replace this use of System.out by a logger.(§…ΥΔ8ιÒ†οθ1
+L	java:S106"+Replace this use of System.out by a logger.(―Ω“θύÿÿÿÿ8κÒ†οθ1
+X
+java:S1481"6Remove this unused "personWithBuilder" local variable.(ώ―†¬ϊÿÿÿÿ8λÒ†οθ1
