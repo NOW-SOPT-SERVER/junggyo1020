@@ -1,4 +1,4 @@
-package org.sopt;
+package org.sopt.classes;
 
 public class Person {
     private String name;
@@ -12,6 +12,13 @@ public class Person {
         this.sex = sex;
     }
 
+    public Person(String name, int age) {
+        this(name, age, "unknown");
+    }
+
+    public String getInfo() {
+        return "이름: " + name + ", 나이: " + age + ", 성별: " + sex;
+    }
     // 이름을 반환하는 메소드
     public String getName() {
         return name;

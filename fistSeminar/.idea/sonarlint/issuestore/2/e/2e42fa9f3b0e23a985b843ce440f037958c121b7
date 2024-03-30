@@ -1,9 +1,8 @@
 
 
-java:S1854"ERemove this useless assignment to local variable "personWithBuilder".(ώ―†¬ϊÿÿÿÿ8΅»οθ1J$d98dea1e-f997-494a-af36-04b3f4d35a63
-m	java:S106"+Replace this use of System.out by a logger.(§…ΥΔ8 ΅»οθ1J$e3158af6-c1da-4558-96b3-20178cde8492
-r	java:S106"+Replace this use of System.out by a logger.(―Ω“θύÿÿÿÿ8΅΅»οθ1J$4663f983-eafb-4fd5-b8cb-8276d7daa6ed
+java:S1854"ERemove this useless assignment to local variable "personWithBuilder".(ώ―†¬ϊÿÿÿÿ8–™Ϊοθ1J$9271f4b3-34f7-43de-871f-dd1f06884bcb
+r	java:S106"+Replace this use of System.out by a logger.(σΪΖσψÿÿÿÿ8—™Ϊοθ1J$a803934b-2eb2-4b2f-861c-4dbce69637b7
+r	java:S106"+Replace this use of System.out by a logger.(ΆΖο®ψÿÿÿÿ8™Ϊοθ1J$8adb399e-0f40-4172-8a82-d61680a977fa
 ~
-java:S1481"6Remove this unused "personWithBuilder" local variable.(ώ―†¬ϊÿÿÿÿ8΅΅»οθ1J$849fbded-6b33-451c-b8d2-46f8ae98e8b0
-r	java:S106"+Replace this use of System.out by a logger.(Θ¦Η¦ψÿÿÿÿ8χω½οθ1J$dc171c72-9f2c-48e5-a629-2c8aaaa003dc
-r	java:S106"+Replace this use of System.out by a logger.(Θ¦Η¦ψÿÿÿÿ8ήΟΎοθ1J$b30747b7-403e-40e4-b2fd-0425493853e6
+java:S1481"6Remove this unused "personWithBuilder" local variable.(ώ―†¬ϊÿÿÿÿ8™Ϊοθ1J$8c4988ee-71d4-4f77-b2a8-0a619ad3b99c
+m	java:S106"+Replace this use of System.out by a logger.(³Θ®Ι8™™Ϊοθ1J$d61728fd-3809-48f0-835d-00096b706973

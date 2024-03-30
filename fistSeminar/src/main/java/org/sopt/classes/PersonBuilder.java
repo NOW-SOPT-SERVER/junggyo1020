@@ -1,4 +1,4 @@
-package org.sopt;
+package org.sopt.classes;
 
 public class PersonBuilder {
     private String name;

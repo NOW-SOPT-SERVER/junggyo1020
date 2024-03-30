@@ -1,6 +1,2 @@
 
-r	java:S106"+Replace this use of System.out by a logger.(¦…ώ‹ωÿÿÿÿ8ΞΨ…οθ1J$db56af65-9617-4271-b496-12c4ba710bf4
-o
-java:S1068"'Remove this unused "age" private field.(Ζ†΄¦ώÿÿÿÿ8ΟΨ…οθ1J$5918577e-65a8-4bef-a661-50b3a925cc60
-j
-java:S1068"'Remove this unused "sex" private field.(ª†« 8ΟΨ…οθ1J$40fbcd5d-84a4-4311-91b3-bd07da3dc5a0
+r	java:S106"+Replace this use of System.out by a logger.(¦…ώ‹ωÿÿÿÿ8ΞΨ…οθ1J$7f9e84bd-ca05-4e5b-9218-71dd29036bd6
