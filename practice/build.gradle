@@ -28,6 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly('com.h2database:h2')
+	testImplementation 'io.rest-assured:rest-assured' //테스트 코드
 }
 
 tasks.named('test') {
