@@ -1,4 +1,4 @@
-package org.sopt.practice;
+package com.sopt.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

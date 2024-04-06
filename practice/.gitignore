@@ -35,13 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-### yml files ###
-application-dev.yml
-
-# Ignore all .yml files under resources
-src/main/resources/*.yml
-
-# But do not ignore these files
-
-
