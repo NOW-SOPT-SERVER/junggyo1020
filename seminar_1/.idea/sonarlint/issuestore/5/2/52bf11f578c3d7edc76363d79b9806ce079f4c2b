@@ -1,3 +1,10 @@
 
-Š
-java:S2094"BRemove this empty class, write its code or make it an "interface".(¯é•Ÿüÿÿÿÿ8Ê¦åšì1J$ff740c5a-13d4-45a0-8ff9-d8e7163b9ccf
+”
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(‰‡ò”8ìêÁì1J$790962ce-344f-49ad-a4e4-3e35235b2528
+m	java:S106"+Replace this use of System.out by a logger.(‰‡ò”8íêÁì1J$03d0f22c-5122-4a58-a245-851ae54ac26c
+r	java:S106
+"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8îêÁì1J$807dfbab-4fa7-4931-8357-7ebbdba9dedf
+”
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(¬¢Î8îêÁì1J$28123740-e15c-4819-bb5d-643b1e81519d
+m	java:S106"+Replace this use of System.out by a logger.(¬¢Î8îêÁì1J$f8370ba9-461f-48d3-a3ac-be74815d9f22
+l	java:S106"+Replace this use of System.out by a logger.(»è½H8ïêÁì1J$5cb7afe0-1a0d-47a3-b141-d5199f758250
