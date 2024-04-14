@@ -1,0 +1,7 @@
+
+“
+java:S1104"PMake part a static final constant or non-public and provide accessors if needed.( ı¹±8ÏïƒÛí1J$38cd4645-6744-45df-b4f6-0b85af7456e0
+V
+java:S1700"Rename field "part"( ı¹±8ÒïƒÛí1J$d89c0825-fcd6-4231-b1c9-4609b785afd0
+f
+java:S3066"#Lower the visibility of this field.( ı¹±8õïƒÛí1J$4ceb7673-5234-4ca3-a907-b2857c432544
