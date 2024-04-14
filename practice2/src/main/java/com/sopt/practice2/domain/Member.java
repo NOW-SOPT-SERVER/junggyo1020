@@ -1,6 +1,7 @@
 package com.sopt.practice2.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,4 +17,11 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Part part;
     private int age;
+
+    @Builder
+    public Member(String name, Part part, int age){
+        this.name = name;
+        this.part = part;
+        this.age = age;
+    }
 }
