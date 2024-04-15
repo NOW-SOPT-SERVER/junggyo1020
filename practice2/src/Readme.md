@@ -36,7 +36,7 @@
 - [ ] Postman으로 API 테스트 하기
 
 # ⚙️ ISSUE
-- closed #5
+- closed #7
 
 ## 🧾 API 명세서
 
