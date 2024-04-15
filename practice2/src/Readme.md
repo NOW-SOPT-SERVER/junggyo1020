@@ -1,39 +1,39 @@
 # 📄 Work Description
 
-##  🍊 등록한 모든 멤버가 List로 반환되는 API 구현하기 🍊
+##  ✨ 등록한 모든 멤버가 List로 반환되는 API 구현하기 ✨
 
-### 📋[POST] 멤버 가입 API 구현 
+### 📋[POST] 멤버 가입 API 구현
 
-- [ ] API 명세서 작성하기
-- [ ] 새로 가입하는 유저의 정보가 담긴 DTO 생성하기
-- [ ] MemberController 작성하기
-- [ ] DTO를 가지고 MemberService 클래스에서 비지니스 로직을 통해 엔티티 객체를 생성하기
-- [ ] 생성된 객체를 기반으로 MemberRepository를 호출하여 데이터베이스에 반영하기
-- [ ] Postman으로 API 테스트 하기
+- [x] API 명세서 작성하기
+- [x] 새로 가입하는 유저의 정보가 담긴 DTO 생성하기
+- [x] MemberController 작성하기
+- [x] DTO를 가지고 MemberService 클래스에서 비지니스 로직을 통해 엔티티 객체를 생성하기
+- [x] 생성된 객체를 기반으로 MemberRepository를 호출하여 데이터베이스에 반영하기
+- [x] Postman으로 API 테스트 하기
 
 ### 📁[GET] 멤버 조회 API 구현
 
-- [ ] API 명세서 작성하기
-- [ ] MemberController에 memberId 받아오기
-- [ ] 멤버 정보를 넘겨줄 DTO 생성하기(정적 팩토리 메서드로 구현)
-- [ ] 받아온 Id를 기준으로 Member를 찾아 MemberFindDto를 만드는 메서드 구현하기
-- [ ] Id를 찾을 수 없는 경우 오류 출력하기
-- [ ] Postman으로 API 테스트 하기
+- [x] API 명세서 작성하기
+- [x] MemberController에 memberId 받아오기
+- [x] 멤버 정보를 넘겨줄 DTO 생성하기(정적 팩토리 메서드로 구현)
+- [x] 받아온 Id를 기준으로 Member를 찾아 MemberFindDto를 만드는 메서드 구현하기
+- [x] Id를 찾을 수 없는 경우 오류 출력하기
+- [x] Postman으로 API 테스트 하기
 
 ### 🗞️[DELETE] 멤버 삭제 API 구현
 
-- [ ] API 명세서 작성하기
-- [ ] MemberController에서 요청 처리하기(PathVariable 받아오기)
-- [ ] MemberService에서 받아온 id에 해당하는 Member 엔티티를 삭제하는 로직을 작성하기
-- [ ] Postman으로 API 테스트 하기
+- [x] API 명세서 작성하기
+- [x] MemberController에서 요청 처리하기(PathVariable 받아오기)
+- [x] MemberService에서 받아온 id에 해당하는 Member 엔티티를 삭제하는 로직을 작성하기
+- [x] Postman으로 API 테스트 하기
 
 ### 🗂️[GET] 멤버 리스트 조회 API 구현
 
-- [ ] API 명세서 작성하기
-- [ ] MemberService 클래스에 모든 멤버를 조회하는 메소드를 추가하기
-- [ ] MemberRepository의 findAll을 사용하여 모든 멤버 데이터를 가져오기
-- [ ] MemberController 클래스에 새로운 GET 요청 매핑을 추가하여 모든 멤버를 반환하는 API 엔드포인트를 생성하기
-- [ ] Postman으로 API 테스트 하기
+- [x] API 명세서 작성하기
+- [x] MemberService 클래스에 모든 멤버를 조회하는 메소드를 추가하기
+- [x] MemberRepository의 findAll을 사용하여 모든 멤버 데이터를 가져오기
+- [x] MemberController 클래스에 새로운 GET 요청 매핑을 추가하여 모든 멤버를 반환하는 API 엔드포인트를 생성하기
+- [x] Postman으로 API 테스트 하기
 
 # ⚙️ ISSUE
 - closed #7
@@ -218,7 +218,7 @@ age | int | 나이
 # 📷 Screenshot
 
 ## 클래스 구조
-![img.png](img.png)
+<img width="363" alt="image" src="https://github.com/NOW-SOPT-SERVER/junggyo1020/assets/150939763/4cc583b3-2e87-48aa-9f15-8d3672425298">
 
 ## dto
 ### MemberCreateDto
@@ -376,4 +376,4 @@ public class Practice2Application {
 }
 ```
 # 💬 To Reviewers
-- 생각보다 단계적으로 구현을 해보려고 하니 효율적인 코드에 대해 많이 고민하게 되는 것 같습니다. 최대한 SOLID 법칙을 지키기 위해서 메서드들을 분리해보려고 했는데, 쉽지가 않네요 ㅎㅎ;; 이후에 고객 테이블을 추가해서 각자 비밀번호를 설정하고, 계좌를 이체하기 전 비밀번호를 입력하도록 하는 기능들도 추가해보려고 생각중입니다! 부족하지만 더 효율적인 코드방향성이 있다면 말씀해주시면 감사드리겠습니다 👍 
+- 이번 주 실습과제 내용은 세미나 2주차 내용과 겹치는 부분이 많아서 최대한 dto, controller, service, repository의 역할을 분리하는데에 집중했고, 각각이 어떤 역할을 하는지 좀 더 깊게 공부해 보았습니다! 그리고 List를 받아올 때, java8 부터 지원되는 Stream API를 활용해보았습니다. map, collect 등의 개념이 아직 명확하게 잡히진 않아서 좀 더 공부가 필요할 것 같네요...하하.. 추가적으로 데이터를 Json형식으로 받아올 때부터 리스트 형식으로 받아오는 방법도 이후 추가로 구현해볼 생각입니다!
