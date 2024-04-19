@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController // @Controller + @ResponseBody : java 객체로 반환되는 값을 JSON으로 변환하여 리턴
 @RequiredArgsConstructor // DI를 위해 사용, final 필드 + @NonNull이 붙은 필드에 대해 생성자 생성
@@ -35,5 +36,12 @@ public class MemberController {
             @PathVariable Long memberId
     ){
         memberService.deleteMemberById(memberId);
+    }
+
+    // 실습 : 모든 멤버리스트를 반환하는 API 추가
+    @GetMapping("/find-all")
+    public ResponseEntity<List<MemberFindDto>> findAllMembers() {
+        List<MemberFindDto> members = memberService.findAllMembers();
+        return ResponseEntity.ok(members);
     }
 }
