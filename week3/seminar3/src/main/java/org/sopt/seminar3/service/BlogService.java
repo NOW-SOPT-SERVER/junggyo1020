@@ -6,6 +6,9 @@ import org.sopt.seminar3.domain.Blog;
 import org.sopt.seminar3.domain.Member;
 import org.sopt.seminar3.dto.BlogCreateRequest;
 import org.sopt.seminar3.dto.BlogTitleUpdateRequest;
+import org.sopt.seminar3.exception.BlogNotFoundException;
+import org.sopt.seminar3.exception.NotFoundException;
+import org.sopt.seminar3.exception.message.ErrorMessage;
 import org.sopt.seminar3.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +37,7 @@ public class BlogService {
 
     public Blog findById(Long blogId){
         return blogRepository.findById(blogId).orElseThrow(
-                () -> new EntityNotFoundException("ID에 해당하는 블로그가 존재하지 않습니다.")
+                () -> new BlogNotFoundException(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION)
         );
     }
 }

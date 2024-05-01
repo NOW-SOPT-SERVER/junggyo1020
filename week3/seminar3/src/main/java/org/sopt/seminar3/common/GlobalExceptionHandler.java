@@ -1,6 +1,8 @@
 package org.sopt.seminar3.common;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.sopt.seminar3.common.dto.ErrorResponse;
+import org.sopt.seminar3.exception.BlogNotFoundException;
 import org.sopt.seminar3.exception.NotFoundException;
 import org.sopt.seminar3.exception.message.ErrorMessage;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,12 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ErrorResponse> handleEntityNotFoundException(NotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ErrorResponse.of(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION));
+    }
+
+    @ExceptionHandler(BlogNotFoundException.class)
+    protected ResponseEntity<ErrorResponse> handleEntityNotFoundException(BlogNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ErrorResponse.of(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
