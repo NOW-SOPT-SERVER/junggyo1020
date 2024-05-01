@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -42,5 +45,12 @@ public class MemberService {
                 () -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
         );
         memberRepository.deleteById(memberId);
+    }
+
+    // 멤버 리스트 모든 멤버를 조회하는 메서드 추가하기
+    public List<MemberFindDto> findAllMembers() {
+        return memberRepository.findAll().stream()
+                .map(member -> new MemberFindDto(member.getName(), member.getPart(), member.getAge()))
+                .collect(Collectors.toList());
     }
 }

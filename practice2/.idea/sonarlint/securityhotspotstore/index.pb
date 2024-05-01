@@ -22,3 +22,7 @@ Asrc/main/java/com/sopt/practice2/Repository/MemberRepository.java,6/4/64b20588
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 k
 ;src/main/java/com/sopt/practice2/Web/dto/MemberFindDto.java,f/7/f7b109375b7e15666ad737f0b5aa07b12eb095af
+=
+src/Readme.md,7/e/7edb62db4f1c3d607e349250cd88d0d2f77c707b
+>
+src/Readme2.md,6/6/66afd27e0d32096550088221e72c6186e415e1a2
