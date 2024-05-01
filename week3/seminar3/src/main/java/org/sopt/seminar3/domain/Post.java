@@ -1,6 +1,7 @@
 package org.sopt.seminar3.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,25 @@ public class Post extends BaseTimeEntity{
     // Blog 와 Post는 N:1 관계
     @ManyToOne(fetch = FetchType.LAZY)
     private Blog blog;
+
+    // 생성 메서드 정의
+    public static Post create(
+            Blog blog,
+            String title,
+            String content
+    ){
+        return Post.builder()
+                .blog(blog)
+                .title(title)
+                .content(content)
+                .build();
+    }
+
+    @Builder
+    public Post(Blog blog, String title, String content) {
+        this.blog = blog;
+        this.title = title;
+        this.content = content;
+    }
 }
+

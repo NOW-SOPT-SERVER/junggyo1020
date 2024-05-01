@@ -1,5 +1,6 @@
 package org.sopt.seminar3.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.sopt.seminar3.domain.Blog;
 import org.sopt.seminar3.domain.Member;
@@ -29,5 +30,11 @@ public class BlogService {
                 () -> new RuntimeException("해당 글이 존재하지 않습니다.")
         );
         blog.updateTitle(blogTitleUpdateRequest.title());
+    }
+
+    public Blog findById(Long blogId){
+        return blogRepository.findById(blogId).orElseThrow(
+                () -> new EntityNotFoundException("ID에 해당하는 블로그가 존재하지 않습니다.")
+        );
     }
 }

@@ -2,6 +2,7 @@ package org.sopt.seminar3.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.sopt.seminar3.domain.Blog;
 import org.sopt.seminar3.domain.SuccessMessage;
 import org.sopt.seminar3.dto.BlogCreateRequest;
 import org.sopt.seminar3.dto.BlogTitleUpdateRequest;
@@ -10,6 +11,8 @@ import org.sopt.seminar3.service.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 
 @RestController
