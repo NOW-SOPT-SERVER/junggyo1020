@@ -1,6 +1,7 @@
-package com.sopt.practice2.domain;
+package org.sopt.seminar3.domain;
 
 public enum Part {
+
     SERVER("SERVER"),
     WEB("WEB"),
     ANDROID("ANDROID"),
