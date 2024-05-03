@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -23,11 +25,13 @@ public class Blog extends BaseTimeEntity{
 
     private String description;
 
-    public static Blog create(
-            Member member,
-            String title,
-            String description
-    ) {
+    @Builder(access = PRIVATE)
+    private Blog(Member member, String title, String description) {
+        this.member = member;
+        this.title = title;
+        this.description = description;
+    }
+    public static Blog create(Member member, String title, String description) {
         return Blog.builder()
                 .member(member)
                 .title(title)
@@ -35,12 +39,7 @@ public class Blog extends BaseTimeEntity{
                 .build();
     }
 
-    @Builder
-    public Blog(Member member, String title, String description) {
-        this.member = member;
-        this.title = title;
-        this.description = description;
-    }
+
 
     public void updateTitle(
             String title

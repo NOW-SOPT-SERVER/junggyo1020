@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -22,24 +24,20 @@ public class Post extends BaseTimeEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     private Blog blog;
 
+    @Builder(access = PRIVATE)
+    private Post(final Blog blog, final String title, final String content) {
+        this.blog = blog;
+        this.title = title;
+        this.content = content;
+    }
+
     // 생성 메서드 정의
-    public static Post create(
-            Blog blog,
-            String title,
-            String content
-    ){
+    public static Post createPost(final Blog blog, final String title, final String content){
         return Post.builder()
                 .blog(blog)
                 .title(title)
                 .content(content)
                 .build();
-    }
-
-    @Builder
-    public Post(Blog blog, String title, String content) {
-        this.blog = blog;
-        this.title = title;
-        this.content = content;
     }
 }
 

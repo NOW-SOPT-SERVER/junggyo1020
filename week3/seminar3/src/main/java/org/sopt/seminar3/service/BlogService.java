@@ -20,6 +20,7 @@ public class BlogService {
     private final BlogRepository blogRepository;
     private final MemberService memberService;
 
+    @Transactional
     public String create(Long memberId, BlogCreateRequest blogCreateRequest) {
         //member찾기
         Member member = memberService.findById(memberId);
@@ -29,15 +30,9 @@ public class BlogService {
 
     @Transactional
     public void updateTitle(Long blogId, BlogTitleUpdateRequest blogTitleUpdateRequest){
-        Blog blog = blogRepository.findById(blogId).orElseThrow(
-                () -> new RuntimeException("해당 글이 존재하지 않습니다.")
-        );
-        blog.updateTitle(blogTitleUpdateRequest.title());
-    }
-
-    public Blog findById(Long blogId){
-        return blogRepository.findById(blogId).orElseThrow(
+        Blog blog  = blogRepository.findById(blogId).orElseThrow(
                 () -> new BlogNotFoundException(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION)
         );
+        blog.updateTitle(blogTitleUpdateRequest.title());
     }
 }

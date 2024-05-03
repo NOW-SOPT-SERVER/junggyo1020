@@ -29,7 +29,7 @@ public class Member {
     }
 
     @Builder
-    public Member(String name, Part part, int age) {
+    private Member(String name, Part part, int age) {
         this.name = name;
         this.part = part;
         this.age = age;
