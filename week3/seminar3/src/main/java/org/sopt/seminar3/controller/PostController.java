@@ -37,5 +37,11 @@ public class PostController {
         List<PostFindDto> posts = postService.findAllPosts();
         return ResponseEntity.ok(posts);
     }
+
+    @GetMapping("/blog/{blogId}/posts")
+    public ResponseEntity<SuccessResponse<List<PostFindDto>>> getPostsByBlogId(@PathVariable Long blogId) {
+        List<PostFindDto> posts = postService.findPostsByBlogId(blogId);
+        return ResponseEntity.ok(SuccessResponse.of(SuccessMessage.POST_GET_SUCCESS, posts));
+    }
 }
 

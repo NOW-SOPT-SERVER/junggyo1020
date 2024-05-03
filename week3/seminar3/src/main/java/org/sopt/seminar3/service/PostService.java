@@ -42,7 +42,14 @@ public class PostService {
     // post 리스트 모든 post를 조회하는 메서드 추가하기
     public List<PostFindDto> findAllPosts() {
         return postRepository.findAll().stream()
-                .map(post -> new PostFindDto(post.getTitle(), post.getContent()))
-                .collect(Collectors.toList());
+                .map(PostFindDto::of)
+                .toList();
+    }
+
+    public List<PostFindDto> findPostsByBlogId(Long blogId) {
+        List<Post> posts = postRepository.findByBlogId(blogId);
+        return posts.stream()
+                .map(PostFindDto::of)
+                .toList();
     }
 }
