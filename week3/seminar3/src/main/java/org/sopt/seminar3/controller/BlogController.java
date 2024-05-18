@@ -2,6 +2,7 @@ package org.sopt.seminar3.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.sopt.seminar3.auth.PrincipalHandler;
 import org.sopt.seminar3.domain.SuccessMessage;
 import org.sopt.seminar3.dto.BlogCreateRequest;
 import org.sopt.seminar3.dto.BlogTitleUpdateRequest;
@@ -11,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.security.Principal;
+
 
 @RestController
 @RequestMapping("/api/v1")
@@ -18,15 +22,14 @@ import org.springframework.web.bind.annotation.*;
 public class BlogController {
 
     private final BlogService blogService;
+    private final PrincipalHandler principalHandler; //의존성 주입
 
     @PostMapping("/blog")
-    public ResponseEntity<SuccessResponse> createBlog(
-            @RequestHeader(name = "memberId") Long memberId, // 멤버 식별자는 중요한 정보이므로 헤더를 통해 받아옴
-            @RequestBody BlogCreateRequest blogCreateRequest
-    ){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .header("Location", blogService.create(memberId, blogCreateRequest))
-                .body(SuccessResponse.of(SuccessMessage.BLOG_CREATE_SUCCESS));
+    public ResponseEntity createBlog(
+            @ModelAttribute BlogCreateRequest blogCreateRequest
+    ) {
+        return ResponseEntity.created(URI.create(blogService.create(
+                principalHandler.getUserIdFromPrincipal(), blogCreateRequest))).build();
     }
 
     @PatchMapping("/blog/{blogId}/title")
