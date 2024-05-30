@@ -39,6 +39,9 @@ dependencies {
 
 	//PostgreSQL 연결
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+
+	//Spring Boot Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {

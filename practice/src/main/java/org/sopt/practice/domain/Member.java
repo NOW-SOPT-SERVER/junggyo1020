@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.sopt.practice.dto.MemberCreateDto;
+import org.sopt.practice.domain.enums.Part;
 
 @Entity //Jpa가 관리하는 객체
 @Getter //전체 필드에 대한 getter 함수 정의
