@@ -1,6 +1,6 @@
-package org.sopt.practice.dto;
+package org.sopt.practice.dto.request;
 
-import org.sopt.practice.domain.Part;
+import org.sopt.practice.domain.enums.Part;
 
 public record MemberCreateDto(
         String name,

@@ -1,4 +1,4 @@
-package org.sopt.practice.domain;
+package org.sopt.practice.domain.enums;
 
 public enum Part {
     SERVER("SERVER"),

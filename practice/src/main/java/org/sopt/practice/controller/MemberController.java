@@ -2,9 +2,9 @@ package org.sopt.practice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.practice.domain.Member;
-import org.sopt.practice.dto.MemberCreateDto;
-import org.sopt.practice.dto.MemberFindAllDto;
-import org.sopt.practice.dto.MemberFindDto;
+import org.sopt.practice.dto.request.MemberCreateDto;
+import org.sopt.practice.dto.response.MemberFindAllDto;
+import org.sopt.practice.dto.response.MemberFindDto;
 import org.sopt.practice.service.MemberService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

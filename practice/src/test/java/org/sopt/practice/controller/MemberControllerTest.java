@@ -5,8 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.sopt.practice.domain.Part;
-import org.sopt.practice.dto.MemberCreateDto;
+import org.sopt.practice.dto.request.MemberCreateDto;
 import org.sopt.practice.repository.MemberRepository;
 import org.sopt.practice.service.MemberService;
 import org.sopt.practice.settings.ApiTest;
@@ -14,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import static org.sopt.practice.domain.Part.SERVER;
+import static org.sopt.practice.domain.enums.Part.SERVER;
 
 public class MemberControllerTest extends ApiTest {
 
