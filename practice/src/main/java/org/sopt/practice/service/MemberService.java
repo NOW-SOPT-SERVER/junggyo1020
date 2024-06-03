@@ -2,9 +2,12 @@ package org.sopt.practice.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.sopt.practice.auth.UserAuthentication;
+import org.sopt.practice.common.jwt.JwtTokenProvider;
 import org.sopt.practice.domain.Member;
-import org.sopt.practice.dto.request.MemberCreateDto;
+import org.sopt.practice.dto.request.MemberCreateRequest;
 import org.sopt.practice.dto.response.MemberFindDto;
+import org.sopt.practice.dto.response.UserJoinResponse;
 import org.sopt.practice.exception.NotFoundException;
 import org.sopt.practice.exception.enums.ErrorMessage;
 import org.sopt.practice.repository.MemberRepository;
@@ -18,14 +21,20 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional //변경사항을 DB에 반영
-    public String createMember(
-            MemberCreateDto memberCreateDto
+    public UserJoinResponse createMember(
+            MemberCreateRequest memberCreateRequest
     ){
-        Member member = Member.create(memberCreateDto.name(), memberCreateDto.part(), memberCreateDto.age());
-        memberRepository.save(member);
-        return member.getId().toString();
+        Member member = memberRepository.save(
+                Member.create(memberCreateRequest.name(), memberCreateRequest.part(), memberCreateRequest.age())
+        );
+        Long memberId = member.getId();
+        String accessToken = jwtTokenProvider.issueAccessToken(
+                UserAuthentication.createUserAuthentication(memberId)
+        );
+        return UserJoinResponse.of(accessToken, memberId.toString());
     }
 
     public MemberFindDto findMemberById(

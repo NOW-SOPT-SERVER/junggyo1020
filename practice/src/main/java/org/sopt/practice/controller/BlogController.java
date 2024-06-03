@@ -2,6 +2,7 @@ package org.sopt.practice.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.sopt.practice.auth.PrincipalHandler;
 import org.sopt.practice.exception.enums.SuccessMessage;
 import org.sopt.practice.exception.dto.SuccessResponse;
 import org.sopt.practice.dto.request.BlogCreateRequest;
@@ -11,21 +12,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController
 @RequiredArgsConstructor //의존성 주입
 @RequestMapping("/api/v1")
 public class BlogController {
 
     private final BlogService blogService;
+    private final PrincipalHandler principalHandler;
 
     @PostMapping("/blog")
     public ResponseEntity<SuccessResponse> createBlog(
-            @RequestHeader Long memberId,
-            @RequestBody BlogCreateRequest blogCreateRequest
+            @ModelAttribute BlogCreateRequest blogCreateRequest
     ){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .header("Location", blogService.create(memberId, blogCreateRequest))
-                .body(SuccessResponse.of(SuccessMessage.BLOG_CREATE_SUCCESS));
+        return ResponseEntity.created(URI.create(blogService.create(
+                principalHandler.getUserIdFromPrincipal(), blogCreateRequest))).build();
     }
 
     @PatchMapping("/blog/{blogId}/title")

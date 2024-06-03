@@ -2,10 +2,12 @@ package org.sopt.practice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.practice.domain.Member;
-import org.sopt.practice.dto.request.MemberCreateDto;
+import org.sopt.practice.dto.request.MemberCreateRequest;
 import org.sopt.practice.dto.response.MemberFindAllDto;
 import org.sopt.practice.dto.response.MemberFindDto;
+import org.sopt.practice.dto.response.UserJoinResponse;
 import org.sopt.practice.service.MemberService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +23,13 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public ResponseEntity createMember( //ResponseEntity는 빌더패턴 지원(상태코드, 헤더, 바디를 담아보냄)
-            @RequestBody MemberCreateDto memberCreateDto
+    public ResponseEntity<UserJoinResponse> createMember( //ResponseEntity는 빌더패턴 지원(상태코드, 헤더, 바디를 담아보냄)
+            @RequestBody MemberCreateRequest memberCreateRequest
     ){
-        return ResponseEntity.created(URI.create(memberService.createMember(memberCreateDto))).build();
+        UserJoinResponse userJoinResponse = memberService.createMember(memberCreateRequest);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .header("Location", userJoinResponse.userId())
+                .body(userJoinResponse);
     }
 
     @GetMapping("/{memberId}")
