@@ -5,7 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.sopt.practice.dto.request.MemberCreateDto;
+import org.sopt.practice.dto.request.MemberCreateRequest;
 import org.sopt.practice.repository.MemberRepository;
 import org.sopt.practice.service.MemberService;
 import org.sopt.practice.settings.ApiTest;
@@ -31,7 +31,7 @@ public class MemberControllerTest extends ApiTest {
         @DisplayName("요청 성공 케이스")
         public void createMemberSuccess() throws Exception{
             //given
-            final var request = new MemberCreateDto("정정교", SERVER, 27);
+            final var request = new MemberCreateRequest("정정교", SERVER, 27);
             //when
             final var response = RestAssured
                     .given()
