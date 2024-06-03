@@ -3,6 +3,8 @@ package org.sopt.practice.service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.sopt.practice.auth.UserAuthentication;
+import org.sopt.practice.auth.redis.domain.Token;
+import org.sopt.practice.auth.redis.repository.RedisTokenRepository;
 import org.sopt.practice.common.jwt.JwtTokenProvider;
 import org.sopt.practice.domain.Member;
 import org.sopt.practice.dto.request.MemberCreateRequest;
@@ -22,19 +24,30 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
+    private final RedisTokenRepository redisTokenRepository;
 
     @Transactional //변경사항을 DB에 반영
     public UserJoinResponse createMember(
             MemberCreateRequest memberCreateRequest
     ){
         Member member = memberRepository.save(
-                Member.create(memberCreateRequest.name(), memberCreateRequest.part(), memberCreateRequest.age())
+                Member.create(memberCreateRequest.username(), memberCreateRequest.password() ,memberCreateRequest.part(), memberCreateRequest.age())
         );
+
         Long memberId = member.getId();
+
         String accessToken = jwtTokenProvider.issueAccessToken(
                 UserAuthentication.createUserAuthentication(memberId)
         );
-        return UserJoinResponse.of(accessToken, memberId.toString());
+
+        String refreshToken = jwtTokenProvider.issueRefreshToken(
+                UserAuthentication.createUserAuthentication(memberId)
+        );
+
+        // RefreshToken을 Redis에 저장
+        redisTokenRepository.save(Token.of(memberId, refreshToken));
+
+        return UserJoinResponse.of(accessToken, refreshToken, memberId.toString());
     }
 
     public MemberFindDto findMemberById(

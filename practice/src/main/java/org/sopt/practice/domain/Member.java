@@ -15,7 +15,9 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //기본키 생성을 데이터베이스에 위임
     private Long id;
 
-    private String name;
+    private String username; // 유저 이름
+
+    private String password; // 유저 비밀번호
 
     @Enumerated(EnumType.STRING) //Enum의 이름을 데이터베이스에 저장
     private Part part;
@@ -23,9 +25,10 @@ public class Member {
     private int age;
 
 //    정적 팩토리 메서드로 객체 생성
-    public static Member create(String name, Part part, int age){
+    public static Member create(String name, String password, Part part, int age){
         return Member.builder()
-                .name(name)
+                .username(name)
+                .password(password)
                 .part(part)
                 .age(age)
                 .build();
@@ -33,8 +36,9 @@ public class Member {
 
     // 빌더패턴으로 객체 생성
     @Builder
-    private Member(final String name, final Part part, final int age){
-        this.name = name;
+    private Member(final String username, String password,final Part part, final int age){
+        this.username = username;
+        this.password = password;
         this.part = part;
         this.age = age;
     }
