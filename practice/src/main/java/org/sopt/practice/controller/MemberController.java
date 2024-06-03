@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,7 +46,7 @@ public class MemberController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("find-all")
+    @GetMapping("/find-all")
     public ResponseEntity<List<MemberFindAllDto>> findAllMembers(){
         List<Member> members = memberService.findAllMembers();
         List<MemberFindAllDto> memberFindAllDtoList = members.stream()

@@ -12,6 +12,6 @@ public record MemberFindAllDto(
     public static MemberFindAllDto of(
             Member member
     ){
-        return new MemberFindAllDto(member.getName(), member.getPart(), member.getAge());
+        return new MemberFindAllDto(member.getUsername(), member.getPart(), member.getAge());
     }
 }
